@@ -12,12 +12,20 @@ npm i
 
 npm start
 
-### Requirements
+## Requirements
 -Sox
 
 -[chocolatey](https://github.com/chocolatey/choco/issues/2398)
 
--[pm2](https://pm2.keymetrics.io/docs/usage/application-declaration/)
+[PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/)
+
+If you’re on macOS, installing is simple, 
+
+yarn add global pm2
+
+If you’re on Linux, Windows, or using a Docker container (yes, it supports Docker as well),
+
+npm install pm2 -g
 
 -[node record](https://github.com/gillesdemey/node-record-lpcm16/issues/58)
 
