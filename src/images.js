@@ -9,6 +9,7 @@ const { transcribe } = require("./transcribe");
 const { profile } = require("./profiles/default");
 const { randomIntFromInterval } = require("./lib/utils");
 
+
 const uidgen = new UIDGenerator();
 const configuration = new Configuration({
   // config
@@ -42,7 +43,7 @@ Description:`;
             temperature: 0.8,
             max_tokens: 507,
             top_p: 1,
-            frequency_penalty: 0,
+            frequency_penalty: 0.35,
             presence_penalty: 0,
           });
           // #todo - this is horrendous
