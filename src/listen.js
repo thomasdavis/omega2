@@ -3,7 +3,7 @@ const speech = require("@google-cloud/speech");
 const { transcribe } = require("./transcribe");
 
 // #todo - this bot can't tell voices apart, this triggers it to be conversational
-const FAKE_LISTENERS = ["People", "Lisa", "Ajax"]; //config
+const FAKE_LISTENERS = ["People", "Lisa", "Ajax", "Pam", "Naya", "Rup"]; //config
 
 function listen() {
   // #todo - configure this if you give a shit
@@ -40,7 +40,7 @@ function listen() {
   recorder
     .record({
       //config
-      sampleRateHertz: sampleRateHertz,
+      sampleRateHertz: voiceConfig.sampleRateHertz,
       threshold: 0.4, // #todo - silence threshold, god knows what this means, find the right floating point
       recordProgram: "rec",
       silence: "0.1", // #todo - as above, hard to get a good value, this in seconds before it thinks people stop talking

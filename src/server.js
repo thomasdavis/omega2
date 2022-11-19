@@ -12,7 +12,7 @@ const app = express();
 app.get("/", function (req, res) {
   // @todo - write the file if it doesn't exist
   const imagesContents = fs.readFileSync(
-    __dirname + "data/images.json",
+    __dirname + "\\..\\data\\images.json",
     "utf8"
   );
   const lastImagesArray = JSON.parse(imagesContents);

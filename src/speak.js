@@ -1,9 +1,9 @@
 const axios = require("axios");
 const fs = require("fs");
 var player = require("play-sound")((opts = {}));
+const { Configuration, OpenAIApi } = require("openai");
 const path = require("path");
 const readLastLines = require("read-last-lines");
-const { randomIntFromInterval } = require("./utils");
 const { profile } = require("./profiles/default");
 const { transcribe } = require("./transcribe");
 const { randomIntFromInterval } = require("./lib/utils");
@@ -11,6 +11,12 @@ const UIDGenerator = require("uid-generator");
 const util = require("util");
 
 const textToSpeech = require("@google-cloud/text-to-speech");
+const configuration = new Configuration({
+  // config
+  apiKey: "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",
+});
+
+const openai = new OpenAIApi(configuration);
 
 const uidgen = new UIDGenerator();
 
