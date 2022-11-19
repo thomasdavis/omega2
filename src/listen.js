@@ -3,7 +3,7 @@ const speech = require("@google-cloud/speech");
 const { transcribe } = require("./transcribe");
 
 // #todo - this bot can't tell voices apart, this triggers it to be conversational
-const FAKE_LISTENERS = ["People", "Lisa", "Ajax"]; //config
+const FAKE_LISTENERS = ["People", "Lisa", "Ajax", "Pam", "Naya", "Rup"]; //config
 
 function listen() {
   // #todo - configure this if you give a shit

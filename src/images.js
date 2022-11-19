@@ -6,21 +6,25 @@ const readLastLines = require("read-last-lines");
 const UIDGenerator = require("uid-generator");
 const util = require("util");
 const { transcribe } = require("./transcribe");
-const { profile } = require("./profiles/Omega");
+const { profile } = require("./profiles/default");
+const { randomIntFromInterval } = require("./lib/utils");
+
 
 const uidgen = new UIDGenerator();
 const configuration = new Configuration({
   // config
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);
 
 // # todo - yet another ugly recursive function, #notmyproblem
 const images = () => {
+  const filename = __dirname + "/../transcript.txt";
+  console.log(filename);
   setTimeout(async () => {
     readLastLines
-      .read(__dirname + "/../transcript.txt", 12) // config
+      .read(filename, 12) // config
       .then(async (lines) => {
         // lines is a new line delimited string of shit (the transcription of those you are engaging with)
         const paintingQuestion = `Describe the following conversation's major thematic elements in terms of a visual description of the content in the form of a painting;
@@ -70,7 +74,7 @@ Description:`;
 
             // @todo - create file if it doesn't exist
             const imagesFile = fs.readFileSync(
-              path.join(__dirname + "data/images.json"),
+              path.join(__dirname + "\\..\\data\\images.json"),
               "utf8"
             );
 
@@ -83,11 +87,11 @@ Description:`;
             });
 
             fs.writeFileSync(
-              path.join(__dirname + "data/images.json"),
+              path.join(__dirname + "\\..\\data\\images.json"),
               JSON.stringify(imagesArray, undefined, 4) // que
             );
           } catch (e) {
-            console.log("==========", e.response.data.error); // que cosa
+            console.log("==========", e); // que cosa
           }
         } else {
           console.log(
@@ -97,7 +101,7 @@ Description:`;
       });
 
     images();
-  }, 30000); // config
+  }, randomIntFromInterval(15000, 20000)); // config
   return;
 };
 
