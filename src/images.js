@@ -6,13 +6,12 @@ const readLastLines = require("read-last-lines");
 const UIDGenerator = require("uid-generator");
 const util = require("util");
 const { transcribe } = require("./transcribe");
-const { profile } = require("./profiles/omega");
-const { randomIntFromInterval } = require("./lib/utils");
+const { profile } = require("./profiles/Omega");
 
 const uidgen = new UIDGenerator();
 const configuration = new Configuration({
   // config
-  apiKey: "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",
+  apiKey: "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",
 });
 
 const openai = new OpenAIApi(configuration);
@@ -40,7 +39,7 @@ Description:`;
             temperature: 0.8,
             max_tokens: 507,
             top_p: 1,
-            frequency_penalty: 0,
+            frequency_penalty: 0.35,
             presence_penalty: 0,
           });
           // #todo - this is horrendous
@@ -98,7 +97,7 @@ Description:`;
       });
 
     images();
-  }, randomIntFromInterval(30000, 50000)); // config
+  }, 30000); // config
   return;
 };
 

@@ -40,7 +40,7 @@ function listen() {
   recorder
     .record({
       //config
-      sampleRateHertz: sampleRateHertz,
+      sampleRateHertz: voiceConfig.sampleRateHertz,
       threshold: 0.4, // #todo - silence threshold, god knows what this means, find the right floating point
       recordProgram: "rec",
       silence: "0.1", // #todo - as above, hard to get a good value, this in seconds before it thinks people stop talking
