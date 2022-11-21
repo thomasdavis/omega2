@@ -6,12 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "pm2 start ecosystem.config.js",
+    "startup": "pm2 startup",
     "stop": "pm2 stop ecosystem.config.js",
     "kill": "pm2 kill",
     "restart": "pm2 restart ecosystem.config.js",
     "reload": "pm2 reload ecosystem.config.js",
     "startAPI": "pm2 start ecosystem.config.js --only 'api-app'",
     "startWorker": "pm2 start ecosystem.config.js --only 'worker-app'"
+    
   },
   "author": "",
   "license": "ISC",
