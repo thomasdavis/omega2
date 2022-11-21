@@ -44,7 +44,7 @@ const speak = () => {
             temperature: 0.8,
             max_tokens: 507,
             top_p: 1,
-            frequency_penalty: 0,
+            frequency_penalty: 0.35,
             presence_penalty: 0,
             stop: stopSequence,
           });
